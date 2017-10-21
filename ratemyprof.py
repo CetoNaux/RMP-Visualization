@@ -1,23 +1,37 @@
 from selenium import webdriver
 import time
 import os
-
+import random
 
 if __name__ == '__main__':
 
     start =time.clock()
 
-    path_to_chrome = '/Users/Dell/Desktop/chromedriver.exe'
+    path_to_chrome = '/Users/Ruihan Tong/Desktop/chromedriver.exe'
     browser = webdriver.Chrome(executable_path = path_to_chrome);
 
     url = 'http://www.ratemyprofessors.com/search.jsp?queryBy=schoolId&schoolName=The+Ohio+State+University&schoolID=724&queryoption=TEACHER'
     browser.get(url)
     browser.maximize_window()
-
+    depts=[]
+    browser.refresh
     if(browser.find_element_by_xpath('//*[@id="cookie_notice"]/a[1]').is_displayed()):
         browser.find_element_by_xpath('//*[@id="cookie_notice"]/a[1]').click()
+        browser.refresh()
 
-    i = 1;
+        # click dropdown button
+        cross = browser.find_element_by_xpath('//*[@id="mainContent"]/div[1]/div/div[3]/div/div/span/span[2]')
+        if(cross.is_displayed()):
+            cross.click()
+        browser.find_element_by_xpath('//*[@id="mainContent"]/div[1]/div/div[3]/div/div/span').click()
+
+        # select dept names
+        deptNames = browser.find_elements_by_class_name("dropdown-menu")
+        for dept in deptNames:
+            depts.append(dept.text)
+        print (depts)
+
+    i=1
     while(i<153):
 
         browser.refresh()
@@ -53,7 +67,8 @@ if __name__ == '__main__':
         names = browser.find_elements_by_class_name("result-list")
 
         for name in names:
-            print(name.text)
+            str1=name.text.split("\n")
+            print(str1)
 
         i = i + 1
 
