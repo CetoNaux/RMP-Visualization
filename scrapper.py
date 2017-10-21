@@ -1,18 +1,16 @@
 # Web scrapper of 'RateMyProfessor' made for OSU students
 # Author: Yanbo Du
 from selenium import webdriver
+from .ProfClass import Prof
 import time
 import os
 import random
-<<<<<<< HEAD:ratemyprof.py
-=======
 
->>>>>>> 2c76fae6f8b25995fa37057458b351bc8650444c:scrapper.py
 
 if __name__ == '__main__':
 
-    start =time.clock()
 
+    start =time.clock()
     path_to_chrome = '/Users/Ruihan Tong/Desktop/chromedriver.exe'
     browser = webdriver.Chrome(executable_path = path_to_chrome);
 
@@ -35,8 +33,9 @@ if __name__ == '__main__':
         deptNames = browser.find_elements_by_class_name("dropdown-menu")
         for dept in deptNames:
             depts.append(dept.text)
-        print (depts)
-
+    
+            print (depts)
+    depLists=[]
     i=1
     while(i<153):
 
@@ -71,10 +70,16 @@ if __name__ == '__main__':
 
         # select prof name
         names = browser.find_elements_by_class_name("result-list")
+        profList=[]
+
+        a = ProfClass.Prof()
 
         for name in names:
             str1=name.text.split("\n")
-            print(str1)
+            a.name=str1[1]
+            a.score=str1[0]
+            a.department=depts[i-1]
+            print(a)
 
         i = i + 1
 
