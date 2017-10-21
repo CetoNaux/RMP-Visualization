@@ -9,12 +9,12 @@ import random
 
 if __name__ == '__main__':
 
-
+    f = open('osuRate.txt', 'w')
     start =time.clock()
     path_to_chrome = '/Users/Ruihan Tong/Desktop/chromedriver.exe'
     browser = webdriver.Chrome(executable_path = path_to_chrome);
 
-    url = 'http://www.ratemyprofessors.com/search.jsp?queryBy=schoolId&schoolName=Columbus+State+Community+College&schoolID=1908&queryoption=TEACHER'
+    url = 'http://www.ratemyprofessors.com/search.jsp?queryBy=schoolId&schoolName=The+Ohio+State+University&schoolID=724&queryoption=TEACHER'
     browser.get(url)
     browser.maximize_window()
     scrapeInfo=[]
@@ -37,7 +37,7 @@ if __name__ == '__main__':
     depLists=depts.split('\n')
     print (depLists[1])
     i=1
-    while(i<106):
+    while(i<152):
 
         browser.refresh()
 
@@ -74,23 +74,23 @@ if __name__ == '__main__':
         str1=[]
         for name in names:
             str1=name.text.split("\n")
-            print(str1)
         m=0
-        if(len(str1)==0)
+        if(len(str1)==0):
             print("")
 
         if (len(str1)>0):
             while(m<len(str1)/3):
                 profInfo = Prof(depLists[i-1],str1[3*m],str1[3*m+1],str1[3*m+2])
+                f.write(profInfo.department+" "+profInfo.name+" "+profInfo.score+" "+profInfo.numberRate+"\n")
                 profList.append(profInfo)
                 m+=1
             scrapeInfo.append(profList)
         i = i + 1
 
-        print('\n')
         time.sleep(3)
 
     end = time.clock()
     print(scrapeInfo[0][1].name)
     print('\n')
     print('Running time: %s Seconds'%(end-start))
+    f.close()
