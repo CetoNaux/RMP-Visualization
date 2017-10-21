@@ -1,7 +1,7 @@
 # Web scrapper of 'RateMyProfessor' made for OSU students
 # Author: Yanbo Du
 from selenium import webdriver
-from .ProfClass import Prof
+from ProfClass import Prof
 import time
 import os
 import random
@@ -14,9 +14,10 @@ if __name__ == '__main__':
     path_to_chrome = '/Users/Ruihan Tong/Desktop/chromedriver.exe'
     browser = webdriver.Chrome(executable_path = path_to_chrome);
 
-    url = 'http://www.ratemyprofessors.com/search.jsp?queryBy=schoolId&schoolName=The+Ohio+State+University&schoolID=724&queryoption=TEACHER'
+    url = 'http://www.ratemyprofessors.com/search.jsp?queryBy=schoolId&schoolName=Columbus+State+Community+College&schoolID=1908&queryoption=TEACHER'
     browser.get(url)
     browser.maximize_window()
+    scrapeInfo=[]
     depts=[]
     browser.refresh
     if(browser.find_element_by_xpath('//*[@id="cookie_notice"]/a[1]').is_displayed()):
@@ -32,12 +33,11 @@ if __name__ == '__main__':
         # select dept names
         deptNames = browser.find_elements_by_class_name("dropdown-menu")
         for dept in deptNames:
-            depts.append(dept.text)
-    
-            print (depts)
-    depLists=[]
+            depts=dept.text  
+    depLists=depts.split('\n')
+    print (depLists[1])
     i=1
-    while(i<153):
+    while(i<106):
 
         browser.refresh()
 
@@ -71,22 +71,26 @@ if __name__ == '__main__':
         # select prof name
         names = browser.find_elements_by_class_name("result-list")
         profList=[]
-
-        a = ProfClass.Prof()
-
+        str1=[]
         for name in names:
             str1=name.text.split("\n")
-            a.name=str1[1]
-            a.score=str1[0]
-            a.department=depts[i-1]
-            print(a)
+            print(str1)
+        m=0
+        if(len(str1)==0)
+            print("")
 
+        if (len(str1)>0):
+            while(m<len(str1)/3):
+                profInfo = Prof(depLists[i-1],str1[3*m],str1[3*m+1],str1[3*m+2])
+                profList.append(profInfo)
+                m+=1
+            scrapeInfo.append(profList)
         i = i + 1
 
         print('\n')
-        time.sleep(random.random())
+        time.sleep(3)
 
     end = time.clock()
-
+    print(scrapeInfo[0][1].name)
     print('\n')
     print('Running time: %s Seconds'%(end-start))
