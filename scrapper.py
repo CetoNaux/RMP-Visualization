@@ -1,7 +1,13 @@
+# Web scrapper of 'RateMyProfessor' made for OSU students
+# Author: Yanbo Du
 from selenium import webdriver
 import time
 import os
 import random
+<<<<<<< HEAD:ratemyprof.py
+=======
+
+>>>>>>> 2c76fae6f8b25995fa37057458b351bc8650444c:scrapper.py
 
 if __name__ == '__main__':
 
@@ -73,7 +79,7 @@ if __name__ == '__main__':
         i = i + 1
 
         print('\n')
-        time.sleep(1)
+        time.sleep(random.random())
 
     end = time.clock()
 
