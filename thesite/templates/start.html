@@ -6,13 +6,13 @@
 <br/>
 <script>
 for (i = 0; i < 152; i++) {
-
 	var button = document.createElement("button");
-	button.innerHTML = "Do Something";
+	button.innerHTML = "Department";
+	document.getElementById("button").classList.add('MyClass');
 	var body = document.getElementsByTagName("body")[0];
 	body.appendChild(button);
 	button.addEventListener ("click", function() {
- 	alert("did something");
+		
 		}
 	)
 };
