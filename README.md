@@ -1,7 +1,6 @@
 # RMP_Visualization
 Author: Ruihan Tong, Hui Li, Yanbo Du, Shichun Xuan
-
-The project is designed and made to collect data that related to OSU(or any other school) on RateMyProfessor the website.  
+The project is designed and made in OHI/O Hackathon 2017. It collects data that related to OSU(or any other school) on RateMyProfessor the website.  
 ## Web Scraping: scrapper.py 
 This scrapping component goes through all the department page and takes the basic information on every single professors based on utilizing Selenium.
 
