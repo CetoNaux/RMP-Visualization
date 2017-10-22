@@ -2692,8 +2692,8 @@ Food Science,Balasubramaniam, V.M,2.0,1 RATINGS
 Food Science,Yousef, Ahmed,N/A,0 RATINGS
 Food Science,Kolluri, Srilatha,N/A,0 RATINGS
 Food Science,Simons, christopher,N/A,0 RATINGS
-Food, Agriculture & Bio Eng,Lichtensteiger, Michael,3.2,25 RATINGS
-Food, Agriculture & Bio Eng,Shearer, Scott,4.8,3 RATINGS
+Food Agriculture & Bio Eng,Lichtensteiger, Michael,3.2,25 RATINGS
+Food Agriculture & Bio Eng,Shearer, Scott,4.8,3 RATINGS
 French,Pillai, Guyomar,4.6,25 RATINGS
 French,Bishop, Elizabeth,4.6,19 RATINGS
 French,Anderson, Andrew,4.8,16 RATINGS

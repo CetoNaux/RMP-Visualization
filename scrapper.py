@@ -1,5 +1,7 @@
 # Web scrapper of 'RateMyProfessor' made for OSU students
-# Author: Yanbo Du
+# This program is used to scrape all OSU professors corresponding to departments.  It outputs a text file that would be used 
+# to build a data base file
+# Author: Yanbo Du, Ruihan Tong, Hui Li, Shichun Xuan
 from selenium import webdriver
 from ProfClass import Prof
 import time
@@ -94,4 +96,4 @@ if __name__ == '__main__':
             browser.refresh()        
     end = time.clock()
     print('Running time: %s Seconds'%(end-start))
-    f.close()
+    f.close(
